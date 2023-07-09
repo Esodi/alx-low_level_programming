@@ -7,15 +7,14 @@
 */
 int main(void)
 {
-	char n[26] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 
-	i = 0;
-	while (i <= 26)
+	i = 'a';
+	while (i <= 'z')
 	{
-		if (n[i] != 'e' && n[i] != 'q')
+		if (i != 'e' && i != 'q')
 		{
-			putchar(n[i]);
+			putchar(i);
 		}
 	i++;
 	}

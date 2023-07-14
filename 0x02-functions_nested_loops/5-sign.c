@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * main - check the code.
- *
+ * print_sign - +,-,0
+ *@n: int var
  * Return: Always 0.
  */
 int print_sign(int n)
@@ -11,5 +11,18 @@ int print_sign(int n)
 	{
 		_putchar('+');
 		return (1);
-	}else if (n == 0)
+		_putchar('\n');
+	}
+	else if (n == 0)
+	{
+		_putchar('0');
+		return (0);
+		_putchar('\n');
+	}
+	else
+	{
+		_putchar('-');
+		return (-1);
+		_putchar('\n');
+	}
 }

@@ -1,13 +1,14 @@
 #include "main.h"
 
 /**
- * main - check the code
- *
+ * print_last_digit - last digit returning function
+ *@n: int var
  * Return: Always 0.
  */
 int print_last_digit(int n)
 {
 	int a;
+
 	if (n < 0)
 	n = -n;
 	a = n % 10;

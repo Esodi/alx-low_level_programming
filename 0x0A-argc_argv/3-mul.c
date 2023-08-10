@@ -5,7 +5,7 @@
  * main - big function
  * @argc: argument count
  * @argv: argument vector
- * Return: Always 0.
+ * Return: 0 (Success), 1 (Error)
  */
 int main(int argc, char **argv)
 {

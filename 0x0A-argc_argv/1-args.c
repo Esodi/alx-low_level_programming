@@ -3,7 +3,8 @@
 /**
  * main - big func
  * @argc: argument count
- * Retur: Always 0.
+ * @argv: argument vector
+ * Return: Always 0.
  */
 int main(int argc, char **argv)
 {

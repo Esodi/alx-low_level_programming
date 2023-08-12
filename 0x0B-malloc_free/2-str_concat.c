@@ -14,9 +14,13 @@ char *str_concat(char *s1, char *s2)
 	size_t l1;
 	size_t l2;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL)
 	{
-		return (NULL);
+		s1 = "";
+	}
+	if (s2 == NULL)
+	{
+		s2 = "";
 	}
 	l1 = strlen(s1);
 	l2 = strlen(s2);

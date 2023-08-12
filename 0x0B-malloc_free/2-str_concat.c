@@ -2,6 +2,12 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * str_concat - concatinets the strings
+ * @s1: str 1
+ * @s2: str 2
+ * Return: cat str
+ */
 char *str_concat(char *s1, char *s2)
 {
 	char *cat;
@@ -18,8 +24,7 @@ char *str_concat(char *s1, char *s2)
 	if (cat != NULL)
 	{
 		strcpy(cat, s1);
-		_putchar(' ');
 		strcat(cat, s2);
 	}
-	return cat;
+	return (cat);
 }

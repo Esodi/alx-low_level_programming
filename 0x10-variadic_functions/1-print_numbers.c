@@ -55,16 +55,12 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	int x;
 	va_list par;
 
-	/*if (separator == NULL)
-	{
-		return;
-	}*/
 	va_start(par, n);
 	for (i = 0; i < n; i++)
 	{
 		x = va_arg(par, int);
 		printnum(x);
-		if (i < (n - 1))
+		if (i < (n - 1) && separator != NULL)
 		{
 			printstr(separator);
 		}

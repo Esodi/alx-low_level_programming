@@ -29,9 +29,9 @@ unsigned int binary_to_uint(const char *b)
 
 	while (*b != '\0')
 	{
-		if ((*b >= 'a' && *b <= 'z') || (*b >= 'A' && *b <= 'Z'))
+		if ((*b >= 'a' && *b <= 'z') || (*b >= 'A' && *b <= 'Z') || (b == NULL))
 		{
-			return (NULL);
+			return (0);
 		}
 		b++;
 	}

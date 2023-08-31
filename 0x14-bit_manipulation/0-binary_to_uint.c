@@ -27,9 +27,11 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int p, n, k = 0;
 	int z = 8, i = 0;
 
+	if (!b)
+		return (0);
 	while (*b != '\0')
 	{
-		if ((*b >= 'a' && *b <= 'z') || (*b >= 'A' && *b <= 'Z') || (b == NULL))
+		if ((*b >= 'a' && *b <= 'z') || (*b >= 'A' && *b <= 'Z'))
 		{
 			return (0);
 		}

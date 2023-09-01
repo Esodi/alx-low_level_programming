@@ -1,14 +1,17 @@
 #include "main.h"
 
+/**
+ * bmod - a function
+ * @q: an  uint
+ * Return: an int
+ */
 int bmod(unsigned long int *q)
 {
 	int w, r;
 
-/*	if (*q == 0)
-		exit(0);*/
 	w = *q * 0.5;
 	r = *q - (2 * w);
-       *q = *q * 0.5;	
+	*q = *q * 0.5;
 	return (r);
 }
 
@@ -20,8 +23,8 @@ int bmod(unsigned long int *q)
 void print_binary(unsigned long int n)
 {
 	int j, l = 0;
-	char *s;	
-	unsigned long int tmp, k = 64, i;
+	char *s;
+	unsigned long int tmp, k = 128, i;
 
 	if (n == 0)
 		_putchar('0');

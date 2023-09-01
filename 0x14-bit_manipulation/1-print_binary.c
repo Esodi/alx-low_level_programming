@@ -19,9 +19,9 @@ int bmod(unsigned long int *q)
  */
 void print_binary(unsigned long int n)
 {
-	int i, j;
+	int j, l = 0;
 	char *s;	
-	unsigned long int tmp;
+	unsigned long int tmp, k = 64, i;
 
 	if (n == 0)
 		_putchar('0');
@@ -29,16 +29,22 @@ void print_binary(unsigned long int n)
 		_putchar('1');
 	else
 	{
-		i = 0;
-		while (i < 16)
+		i = 1;
+		while (i <= k)
 		{
 			tmp = bmod(&n);
 			*s = (tmp + '0');
 			s++;
 			i++;
+			l++;
 		}
 		s--;
-		for (j = 0; j < 16; j++)
+		while (*s != '1')
+		{
+			s--;
+			l--;
+		}
+		for (j = 0; j < l; j++)
 		{
 			_putchar(*s);
 			s--;

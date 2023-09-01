@@ -25,7 +25,7 @@ int pw(int base, int exp)
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int p, n, k = 0;
-	int z = 16, i = 0;
+	int z = 64, i = 0;
 
 	if (!b)
 		return (0);

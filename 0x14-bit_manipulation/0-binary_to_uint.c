@@ -25,17 +25,20 @@ int pw(int base, int exp)
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int p, n, k = 0;
-	int z = 8, i = 0;
+	int z = 16, i = 0;
 
 	if (!b)
 		return (0);
 	while (*b != '\0')
 	{
-		if ((*b >= 'a' && *b <= 'z') || (*b >= 'A' && *b <= 'Z'))
+		if ((*b >= '0' && *b <= '1'))
+		{
+			b++;
+		}
+		else
 		{
 			return (0);
 		}
-		b++;
 	}
 	b--;
 	while (i < z && *b != '\0')

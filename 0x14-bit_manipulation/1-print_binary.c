@@ -24,7 +24,7 @@ void print_binary(unsigned long int n)
 {
 	int j, l = 0;
 	char *s;
-	unsigned long int tmp, k = 128, i;
+	unsigned long int tmp, k = 256, i;
 
 	if (n == 0)
 		_putchar('0');

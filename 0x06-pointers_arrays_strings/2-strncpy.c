@@ -5,6 +5,7 @@
  * @dest: destination.
  * @src: source.
  * @n: bytes.
+ * Return: new dest.
  */
 char *_strncpy(char *dest, char *src, int n)
 {

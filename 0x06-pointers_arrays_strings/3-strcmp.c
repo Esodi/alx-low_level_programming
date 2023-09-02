@@ -12,11 +12,26 @@ int _strcmp(char *s1, char *s2)
 	int str1 = (int)*s1;
 	int str2 = (int)*s2;
 
-	while (*s1 != '\0' && *s2 != '\0')
+	if (!(s1))
 	{
-		strc = str1 - str2;
-		s1++;
-		s2++;
+		return (str2);
 	}
-	return (strc);
+	else if (!(s2))
+	{
+		return (str1);
+	}
+	else if (!(s1) && !(s2))
+	{
+		return (404);
+	}
+	else
+	{
+		while (*s1 != '\0' && *s2 != '\0')
+		{
+			strc = str1 - str2;
+			s1++;
+			s2++;
+		}
+		return (strc);
+	}
 }

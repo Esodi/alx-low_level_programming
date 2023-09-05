@@ -16,12 +16,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (filename == NULL)
 		return (0);
-	fp = open(filename, O_RDONLY, 0644);
+	fp = open(filename, O_RDONLY);
 	if (fp == -1)
 		return (0);
 	while (letters > 0)
 	{
-		for_read = read(fp, memo, letters);
+		for_read = read(fp, memo, (letters < sizeof(memo) ? letters : sizeof(memo)));
 		if (for_read <= 0)
 			break;
 

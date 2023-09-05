@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * read_textfile - reads a text file and prints it to the POSIX standard output.
+ * read_textfile - reads a text file and prints it to the POSIX stout.
  * @filename: name of the file.
  * @letters: letters.
  * Return: text from the file.
@@ -13,7 +13,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t for_read;
 	ssize_t for_write;
 	char memo[1024];
-	
+
 	if (filename == NULL)
 		return (0);
 	fp = open(filename, O_RDONLY, 0644);
@@ -21,12 +21,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	while (letters > 0)
 	{
-		for_read = read(fp, memo, sizeof(memo));
+		for_read = read(fp, memo, letters);
 		if (for_read <= 0)
 			break;
 
 		for_write = write(STDOUT_FILENO, memo, for_read);
-		if (for_write== -1)
+		if (for_write == -1)
 		{
 			close(fp);
 			return (0);

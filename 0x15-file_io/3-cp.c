@@ -15,35 +15,39 @@ int copy(const char *file1, const char *file2)
 	thefile1 = open(file1, O_RDONLY);
 	if (thefile1 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", file1);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file1);
 		exit(98);
 	}
 	for_read = read(thefile1, memo, sizeof(memo));
 	if (for_read == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", file1);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file1);
+		 close(thefile1);
 		exit(98);
 	}
 	thefile2 = open(file2, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (thefile2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", file2);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
+		  close(thefile1);
 		exit(99);
 	}
 	for_write = write(thefile2, memo, for_read);
 	if (for_write == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", file2);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
+		close(thefile1);
+	        close(thefile2);
 		exit(99);
 	}
 	if (close(thefile1) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", thefile1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", thefile1);
 		exit(100);
 	}
 	if (close(thefile2) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", thefile2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", thefile2);
 		exit(100);
 	}
 	return (1);

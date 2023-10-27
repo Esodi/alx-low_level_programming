@@ -24,7 +24,7 @@ int pawa(int base, int exp)
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int n[1024], c = 0, j = 0, i, f;
+	int *n = malloc(sizeof(char) * 8), c = 0, j = 0, i, f;
 	unsigned int a = 0;
 
 	if (b == NULL)
@@ -47,5 +47,6 @@ unsigned int binary_to_uint(const char *b)
 		f = pawa(2, i);
 		a = (n[j++] * f) + a;
 	}
+	free(n);
 	return (a);
 }

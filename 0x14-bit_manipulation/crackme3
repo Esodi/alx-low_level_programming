@@ -1,2 +1,3 @@
 #!/bin/bash
-cat 101-password
+file="101-password"
+cat "$file" 

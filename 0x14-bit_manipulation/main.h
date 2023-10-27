@@ -5,6 +5,7 @@
 #include <math.h>
 #include <stdlib.h>
 
+int get_endianness(void);
 int _putchar(char x);
 unsigned int binary_to_uint(const char *b);
 void print_binary(unsigned long int n);

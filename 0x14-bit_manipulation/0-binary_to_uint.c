@@ -24,7 +24,7 @@ int pawa(int base, int exp)
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int n[65], c = 0, j = 0, i, f;
+	int n[128], c = 0, j = 0, i, f;
 	unsigned int a = 0;
 
 	if (b == NULL)

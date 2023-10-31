@@ -19,20 +19,17 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	file = open(filename, O_RDONLY);
 	if (file == -1)
 	{
-		perror("open");
 		return (0);
 	}
-	memo = malloc(letters);
+	memo = malloc(sizeof(char) * letters);
 	if (memo == NULL)
 	{
-		perror("malloc");
 		close(file);
 		return (0);
 	}
 	b_rd = read(file, memo, letters);
 	if (b_rd == -1)
 	{
-		perror("read");
 		free(memo);
 		close(file);
 		return (0);
@@ -40,7 +37,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	b_wr = write(STDOUT_FILENO, memo, b_rd);
 	if (b_wr == -1)
 	{
-		perror("write");
 		free(memo);
 		close(file);
 		return (0);

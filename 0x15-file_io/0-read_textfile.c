@@ -23,11 +23,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	memo = malloc(letters);
+	if (memo == NULL)
+	{
+		perror("malloc");
+		close(file);
+		return (0);
+	}
 	b_rd = read(file, memo, letters);
 	if (b_rd == -1)
 	{
 		perror("read");
 		free(memo);
+		close(file);
 		return (0);
 	}
 	b_wr = write(STDOUT_FILENO, memo, b_rd);
@@ -35,6 +42,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		perror("write");
 		free(memo);
+		close(file);
 		return (0);
 	}
 	free(memo);

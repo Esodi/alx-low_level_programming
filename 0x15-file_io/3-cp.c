@@ -6,10 +6,11 @@ int cp(char *file_from, char *file_to)
 	ssize_t b_rd, b_wr;
 	char buffer[1024];
 
-	if (file_from == NULL)
-		exit(98);
-	if (file_to == NULL)
-		exit(99);
+	if (file_from == NULL || file_to == NULL)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
 	file1 = open(file_from, O_RDONLY);
 	if (file1 == -1)
 	{
@@ -41,7 +42,7 @@ int cp(char *file_from, char *file_to)
 	}
 	if (close(file2) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file2);
 		exit(100);
 	}
 	return (1);
@@ -49,12 +50,10 @@ int cp(char *file_from, char *file_to)
 
 int main(int ac, char *av[])
 {
-	if (ac < 2)
+	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	cp(av[1], av[2]);
-
-	return (0);
+	return (cp(av[1], av[2]));
 }

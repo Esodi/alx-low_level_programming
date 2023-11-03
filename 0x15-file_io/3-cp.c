@@ -15,7 +15,7 @@ int cp(char *file_from, char *file_to)
 	file2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	if (file2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't read to %s\n", file_to);
 		exit(99);
 	}
 	b_rd = 1024;
@@ -30,7 +30,7 @@ int cp(char *file_from, char *file_to)
 		b_wr = write(file2, buffer, b_rd);
 		if (b_wr == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
 	}

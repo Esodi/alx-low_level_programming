@@ -2,7 +2,7 @@
 
 int cp(char *file_from, char *file_to)
 {
-	int file1, file2;
+	int file1, file2, cf;
 	ssize_t b_rd, b_wr;
 	char buffer[1024];
 
@@ -34,12 +34,12 @@ int cp(char *file_from, char *file_to)
 			exit(99);
 		}
 	}
-	if (close(file1) == -1)
+	if (cf = close(file1) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file1);
 		exit(100);
 	}
-	if (close(file2) == -1)
+	if (cf = close(file2) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file2);
 		exit(100);

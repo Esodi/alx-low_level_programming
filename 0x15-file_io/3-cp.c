@@ -17,7 +17,7 @@ int cp(char *file_from, char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	file2 = open(file_to, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	file2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	if (file2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);

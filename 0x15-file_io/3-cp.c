@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * print_error - prints error description.
+ * @code: exit code.
+ * @format: format type.
+ * @arg: arguments.
+ */
 void print_error(int code, const char *format, const char *arg)
 {
 	dprintf(STDERR_FILENO, "Error: ");
@@ -8,6 +14,12 @@ void print_error(int code, const char *format, const char *arg)
 	exit(code);
 }
 
+/**
+ * cp - copy file to another file.
+ * @file_from: source file.
+ * @file_to: destination file.
+ * Return: 0 on success.
+ */
 int cp(char *file_from, char *file_to)
 {
 	int file1, file2, cf;
@@ -27,7 +39,7 @@ int cp(char *file_from, char *file_to)
 			print_error(98, "Can't read from file %s", file_from);
 		b_wr = write(file2, buffer, b_rd);
 		if (b_wr == -1)
-			print_error(99, "Can't write to file %s", file_to);
+			print_error(99, "Can't write to %s", file_to);
 	}
 	cf = close(file1);
 	if (cf == -1)
@@ -44,6 +56,12 @@ int cp(char *file_from, char *file_to)
 	return (0);
 }
 
+/**
+ * main - check the code
+ * @ac: arg count.
+ * @av: arg vector.
+ * Return: Always 0.
+ */
 int main(int ac, char *av[])
 {
 	if (ac != 3)

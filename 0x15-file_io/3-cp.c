@@ -34,12 +34,14 @@ int cp(char *file_from, char *file_to)
 			exit(99);
 		}
 	}
-	if (cf = close(file1) == -1)
+	cf = close(file1);
+	if (cf == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file1);
 		exit(100);
 	}
-	if (cf = close(file2) == -1)
+	cf = close(file2);
+	if (cf == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file2);
 		exit(100);

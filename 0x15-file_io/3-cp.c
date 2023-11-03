@@ -6,11 +6,6 @@ int cp(char *file_from, char *file_to)
 	ssize_t b_rd, b_wr;
 	char buffer[1024];
 
-	if (file_from == NULL || file_to == NULL)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
 	file1 = open(file_from, O_RDONLY);
 	if (file1 == -1)
 	{

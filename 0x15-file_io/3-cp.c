@@ -18,17 +18,21 @@ int cp(char *file_from, char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(99);
 	}
-	b_rd = read(file1, buffer, sizeof(buffer));
-	if (b_rd == -1)
+	b_rd = 1024;
+	while (b_rd == 1024)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	b_wr = write(file2, buffer, b_rd);
-	if (b_wr == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(99);
+		b_rd = read(file1, buffer, sizeof(buffer));
+		if (b_rd == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			exit(98);
+		}
+		b_wr = write(file2, buffer, b_rd);
+		if (b_wr == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			exit(99);
+		}
 	}
 	if (close(file1) == -1)
 	{

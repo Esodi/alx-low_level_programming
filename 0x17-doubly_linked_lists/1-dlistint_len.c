@@ -12,14 +12,16 @@ size_t dlistint_len(const dlistint_t *h)
 
 	if (h == NULL)
 	{
-		c++;
 		return (c);
 	}
-	while (tmp->next != NULL)
+	else
 	{
-		tmp = tmp->next;
+		while (tmp->next != NULL)
+		{
+			tmp = tmp->next;
+			c++;
+		}
 		c++;
 	}
-	c++;
 	return (c);
 }

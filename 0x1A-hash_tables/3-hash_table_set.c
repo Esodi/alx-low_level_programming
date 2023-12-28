@@ -22,14 +22,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	size = ht->size;
 	code = hash_djb2((const unsigned char *)key);
 	indx = code % size;
-	new->key = strdup(key);
-	if (new->value != NULL)
+	if (strcmp(new->key, key) == 0)
 	{
+		free(new->key);
 		free(new->value);
+		new->key = strdup(key)
 		new->value = strdup(value);
 	}
 	else
+	{
+		new->key = strdup(key);
 		new->value = strdup(value);
+	}
 	if (ht->array[indx] == NULL)
 	{
 		ht->array[indx] = new;

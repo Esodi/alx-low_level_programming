@@ -18,6 +18,8 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	}
 	size = ht->size;
 	ind = key_index((const unsigned char *)key, (unsigned long int)size);
+	if (ind >= size)
+		return (NULL);
 	tmp = ht->array[ind];
 	while (tmp)
 	{

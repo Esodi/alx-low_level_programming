@@ -10,7 +10,6 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int ind, size;
 	hash_node_t *tmp;
-	char *value = NULL;
 
 	if (ht == NULL || key == NULL)
 	{
@@ -21,14 +20,12 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	if (ind >= size)
 		return (NULL);
 	tmp = ht->array[ind];
-	while (tmp)
+	while (tmp && strcmp(tmp->key, key))
 	{
-		if (strcmp(tmp->key, key) == 0)
-		{
-			value = strdup(tmp->value);
-			break;
-		}
 		tmp = tmp->next;
 	}
-	return (value);
+	if (!tmp)
+		return (NULL);
+	else
+		return (tmp->value);
 }

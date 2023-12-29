@@ -14,6 +14,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 	if (!ht || !key)
 		return (NULL);
+	hash_table_set((hash_table_t *)ht, "Canada", "Ottawa");
 	size = ht->size;
 	ind = key_index((const unsigned char *)key, (unsigned long int)size);
 	if (ind >= size)

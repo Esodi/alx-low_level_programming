@@ -8,7 +8,7 @@ NAME = school
 
 RM = rm -f
 
-all: school
+all: $(NAME)
 
 school: $(OBJ)
 	$(CC) $(OBJ) -o school
